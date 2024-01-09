@@ -42,7 +42,7 @@ function Article() {
               className="share-icon"
               onClick={(e) => handleClick(e)}
             ></button>
-            <div className="content active">
+            <div className="content">
               <div>SHARE</div>
               <ul>
                 <li>
