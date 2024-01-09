@@ -1,0 +1,172 @@
+@use "./global/config" as *;
+@use "./global/fa" as *;
+@forward "global";
+@forward "components";
+body {
+  background-color: $clr-primary100;
+  font-weight: $medium;
+}
+
+:root {
+  --edge: 10px;
+  --icon-size: 1.6rem;
+}
+
+main {
+  padding: 25px;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: var(--edge);
+    max-width: 730px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+    picture img {
+      height: 202.531px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: var(--edge) var(--edge) 0 0;
+    }
+
+    article {
+      padding: 2rem 1.8rem 2rem 1.8rem;
+      position: relative;
+    }
+
+    .info {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      img {
+        width: 40px;
+        border-radius: 50%;
+      }
+    }
+
+    .info > :nth-child(1) {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      > :nth-child(2) > :nth-child(2) {
+        opacity: 0.5;
+        margin-top: 0.4rem;
+      }
+    }
+
+    .share-icon {
+      @include fa-icon-solid($fa-var-share);
+      height: 34px;
+      width: 34px;
+      display: grid;
+      place-items: center;
+      background-color: $clr-primary100;
+      border-radius: 50%;
+      z-index: 1;
+      position: relative;
+      color: $clr-primary400;
+
+      &.active {
+        @include fa-icon-solid($fa-var-close);
+      }
+    }
+
+    .content {
+      display: none;
+      color: $clr-primary100;
+    }
+
+    .content.active {
+      --gap: 1rem;
+      background-color: $clr-primary300;
+      align-items: center;
+      gap: var(--gap);
+      width: 100%;
+      left: 0;
+      position: absolute;
+      bottom: 0;
+      padding: 2.3rem 2rem;
+      display: flex;
+      border-radius: 0 0 var(--edge) var(--edge);
+      animation: fadeIn 0.6s;
+
+      ul {
+        font-size: var(--icon-size);
+        display: flex;
+        align-items: center;
+        gap: var(--gap);
+        > * i {
+          transition: 0.8s;
+        }
+
+        > * i:hover {
+          scale: 1.2;
+        }
+
+        > :nth-child(1) i {
+          @include fa-icon-brands($fa-var-facebook);
+        }
+
+        > :nth-child(2) i {
+          @include fa-icon-brands($fa-var-twitter);
+        }
+
+        > :nth-child(3) i {
+          @include fa-icon-brands($fa-var-pinterest);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  :root {
+    font-size: 14px;
+  }
+
+  main {
+    .container {
+      flex-direction: row;
+      min-height: 280px;
+
+      .info {
+        margin-top: 6rem;
+      }
+
+      > picture {
+        flex: 0 1 285px;
+
+        img {
+          height: 100%;
+          border-radius: var(--edge) 0 0 var(--edge);
+        }
+      }
+
+      p {
+        width: 90%;
+      }
+
+      article {
+        flex: 1;
+        padding-bottom: 1.4rem;
+      }
+
+      .content.active {
+        border-radius: 0 0 var(--edge) 0;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    font-size: 16px;
+  }
+}

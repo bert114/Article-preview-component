@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+$ff: "Manrope", sans-serif;
+$medium: 500;
+$bold: 700;
+
+//MIX IN
+@mixin flex($direction, $align: initial) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+}
+
+$clr-primary100: hsl(210, 46%, 95%);
+$clr-primary200: hsl(212, 23%, 69%);
+$clr-primary300: hsl(214, 17%, 51%);
+$clr-primary400: hsl(217, 19%, 35%);
