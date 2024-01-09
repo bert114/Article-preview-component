@@ -7,9 +7,9 @@ function handleClick(e) {
   button.classList.toggle("active");
 
   if (button.classList.contains("active")) {
-    content.style.display = "flex";
+    content.classList.add("active");
   } else {
-    content.style.display = "none";
+    content.classList.remove("active");
   }
 }
 
